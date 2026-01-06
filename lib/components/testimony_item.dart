@@ -10,6 +10,7 @@ class TestimonyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StyledCard(
+      isBackgroundBlur: true,
       widget: Column(
         children: [
           Row(
