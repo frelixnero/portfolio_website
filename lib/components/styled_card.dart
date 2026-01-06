@@ -1,0 +1,187 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio_website/util/constants/extension.dart';
+
+class StyledCard extends StatefulWidget {
+  final double? width;
+  final double? height;
+  final EdgeInsets? padding;
+  final BorderRadius? borderRadius;
+  final Widget widget;
+  final bool borderEffect;
+
+  const StyledCard({
+    super.key,
+    this.width,
+    this.height,
+    this.padding,
+    this.borderRadius,
+    required this.widget,
+    this.borderEffect = false,
+  });
+
+  @override
+  State<StyledCard> createState() => _StyledCardState();
+}
+
+class _StyledCardState extends State<StyledCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final effectiveBorderRadius =
+        widget.borderRadius ?? BorderRadius.circular(24);
+    final primaryColor = Theme.of(context).colorScheme.primary;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.click,
+      child: Stack(
+        children: [
+          // Background Glow / Highlight effect
+          if (widget.borderEffect) ...[
+            _BorderShadow(isHovered: _isHovered),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: _BorderShadow(isHovered: _isHovered),
+            ),
+          ],
+
+          // Main Card Container
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            height: widget.height,
+            width: widget.width,
+            padding:
+                widget.padding ?? EdgeInsets.all(context.inserts.cardPadding),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.outline,
+              borderRadius: effectiveBorderRadius,
+              border: Border.all(
+                // Brighten border on hover
+                color:
+                    _isHovered
+                        ? primaryColor.withOpacity(0.8)
+                        : Theme.of(context).colorScheme.surface,
+                width: _isHovered ? 1.5 : 1.0,
+              ),
+              boxShadow:
+                  _isHovered
+                      ? [
+                        BoxShadow(
+                          color: primaryColor.withOpacity(0.15),
+                          blurRadius: 20,
+                          spreadRadius: 5,
+                        ),
+                      ]
+                      : [],
+            ),
+            child: widget.widget,
+          ),
+
+          // Custom Painted corner accents
+          if (widget.borderEffect) ...[
+            IgnorePointer(
+              child: AnimatedOpacity(
+                duration: const Duration(milliseconds: 300),
+                opacity: _isHovered ? 1.0 : 0.6,
+                child: CustomPaint(
+                  size: Size(widget.width ?? 30, widget.height ?? 30),
+                  painter: CurvedLinePainter(color: primaryColor),
+                ),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class CurvedLinePainter extends CustomPainter {
+  final Color color;
+
+  CurvedLinePainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    const lineSize = 60.0;
+    final topLeftPaint =
+        Paint()
+          ..shader = LinearGradient(
+            colors: [color.withOpacity(0), color, color.withOpacity(0)],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ).createShader(const Rect.fromLTWH(0, 0, lineSize, lineSize))
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 4
+          ..strokeCap = StrokeCap.round;
+
+    final bottomRightPaint =
+        Paint()
+          ..shader = LinearGradient(
+            colors: [color.withOpacity(0), color, color.withOpacity(0)],
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+          ).createShader(
+            Rect.fromLTWH(
+              size.width - lineSize,
+              size.height - lineSize,
+              lineSize,
+              lineSize,
+            ),
+          )
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 4
+          ..strokeCap = StrokeCap.round;
+
+    final path = Path();
+    path.moveTo(lineSize, 0);
+    path.cubicTo(0, 0, 0, 0, 0, lineSize);
+
+    final path2 = Path();
+    path2.moveTo(size.width - lineSize, size.height);
+    path2.cubicTo(
+      size.width,
+      size.height,
+      size.width,
+      size.height,
+      size.width,
+      size.height - lineSize,
+    );
+    canvas.drawPath(path, topLeftPaint);
+    canvas.drawPath(path2, bottomRightPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CurvedLinePainter oldDelegate) =>
+      color != oldDelegate.color;
+}
+
+class _BorderShadow extends StatelessWidget {
+  final bool isHovered;
+  const _BorderShadow({required this.isHovered});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      width: 60,
+      height: 60,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: context.theme.colorScheme.primary.withOpacity(
+              isHovered ? 0.7 : 0.3,
+            ),
+            blurRadius: isHovered ? 25 : 10,
+            spreadRadius: isHovered ? 8 : 2,
+          ),
+        ],
+      ),
+    );
+  }
+}
