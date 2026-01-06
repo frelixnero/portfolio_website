@@ -41,6 +41,7 @@ class CourseItem extends StatelessWidget {
     return StyledCard(
       height: context.isDesktop ? 600 : 400,
       isBackgroundBlur: false,
+      isAnimated: true,
       width: 400,
       widget: AspectRatio(
         aspectRatio: 0.7,
