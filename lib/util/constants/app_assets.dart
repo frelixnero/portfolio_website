@@ -3,6 +3,8 @@ class AppAssets {
   static const String iconPath = 'assets/icons';
   static const String usFlag = 'assets/icons/usFlag.png';
   static const String profilePic = 'assets/icons/profile.jpg';
+  static const String profilePicSmile = 'assets/icons/profilePicSmile.png';
+  static const String profilePicFrown = 'assets/icons/profilePicFrown.png';
 
   static const String descritionText =
       '''I am a results-driven Flutter & Python Developer with 2+ years of experience delivering high-quality, cross-platform mobile applications and robust backend services.''';

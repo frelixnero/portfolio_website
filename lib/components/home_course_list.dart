@@ -37,7 +37,7 @@ class HomeCourseListDesktop extends StatelessWidget {
         children: [
           Expanded(
             child: StaggeredCardWrapper(
-              delay: const Duration(microseconds: 20),
+              delay: const Duration(microseconds: 10),
               isAnimated: true,
               child: CourseItem(
                 title: "Food Delivery App",
@@ -63,7 +63,7 @@ class HomeCourseListDesktop extends StatelessWidget {
           Gap(8),
           Expanded(
             child: StaggeredCardWrapper(
-              delay: const Duration(microseconds: 20),
+              delay: const Duration(microseconds: 30),
               isAnimated: true,
               child: CourseItem(
                 title: "Fast API Social Media Backend",
