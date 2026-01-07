@@ -22,16 +22,24 @@ class ProjectsPage extends StatelessWidget {
                     context.mq.size.width ~/ 300 >= 3
                         ? 3
                         : context.mq.size.width ~/ 300,
-                crossAxisSpacing: 24,
-                mainAxisSpacing: 24,
-                childAspectRatio: 0.5,
+                crossAxisSpacing: context.isDesktop ? 24 : 16,
+                mainAxisSpacing: context.isDesktop ? 24 : 16,
+                childAspectRatio:
+                    context.isDesktop
+                        ? 0.5
+                        : context.isTablet
+                        ? 0.8
+                        : 1.2,
               ),
               itemBuilder: ((context, index) {
-                return CourseItem(
-                  title: projectList[index].title,
-                  description: projectList[index].projectDesc,
-                  imagePath: projectList[index].imagePath,
-                  projectLink: projectList[index].projectLink,
+                return Align(
+                  alignment: AlignmentGeometry.center,
+                  child: CourseItem(
+                    title: projectList[index].title,
+                    description: projectList[index].projectDesc,
+                    imagePath: projectList[index].imagePath,
+                    projectLink: projectList[index].projectLink,
+                  ),
                 );
               }),
               itemCount: projectList.length,

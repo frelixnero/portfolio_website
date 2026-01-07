@@ -23,7 +23,7 @@ class DesktopTestimonyList extends StatelessWidget {
     return SliverMasonryGrid(
       delegate: SliverChildBuilderDelegate((context, builder) {
         return TestimonyItem();
-      }, childCount: 10),
+      }, childCount: 5),
       crossAxisSpacing: 16,
       mainAxisSpacing: 16,
       gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(

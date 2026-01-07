@@ -50,7 +50,7 @@ class HomeCourseListDesktop extends StatelessWidget {
           Gap(8),
           Expanded(
             child: StaggeredCardWrapper(
-              delay: const Duration(microseconds: 20),
+              delay: const Duration(microseconds: 70),
               isAnimated: true,
               child: CourseItem(
                 title: "Fastapi Paystack Payment Processor",
@@ -63,7 +63,7 @@ class HomeCourseListDesktop extends StatelessWidget {
           Gap(8),
           Expanded(
             child: StaggeredCardWrapper(
-              delay: const Duration(microseconds: 30),
+              delay: const Duration(microseconds: 500),
               isAnimated: true,
               child: CourseItem(
                 title: "Fast API Social Media Backend",
