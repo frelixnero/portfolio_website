@@ -57,6 +57,5 @@ class SmallInserts extends AppInserts {
   double get cardPadding => Inserts.lg;
 
   @override
-  // TODO: implement gap
   double get gap => 72;
 }
