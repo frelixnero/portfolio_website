@@ -7,7 +7,7 @@ class AppAssets {
   static const String profilePicFrown = 'assets/icons/profilePicFrown.png';
 
   static const String descritionText =
-      '''I am a results-driven Flutter & Python Developer with 2+ years of experience delivering high-quality, cross-platform mobile applications and robust backend services.''';
+      '''My name is Ogene Osita Felix and I am a results-driven Flutter & Python Developer with over 3 years of experience and technical expertise delivering high-quality, cross-platform mobile applications and robust backend services.''';
   static const String courseImage =
       'assets/images/Brown Cream MInimalist Interior Design Presentation.png';
   static const String courseImage2 =

@@ -4,6 +4,7 @@ import 'package:portfolio_website/components/my_app_bar.dart';
 import 'package:portfolio_website/components/powered_by_flutter_widget.dart';
 import 'package:portfolio_website/util/constants/app_assets.dart';
 import 'package:portfolio_website/util/constants/extension.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyFooter extends StatelessWidget {
   const MyFooter({super.key});
@@ -48,14 +49,39 @@ class MobileFooter extends StatelessWidget {
 class FooterLinks extends StatelessWidget {
   const FooterLinks({super.key});
 
+  void _launchURL(String url, BuildContext context) async {
+    // Implementation for launching URL
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Payment initialization failed")));
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        FooterLinksItems(iconImage: AppAssets.gitHub, onPressed: () {}),
+        FooterLinksItems(
+          iconImage: AppAssets.gitHub,
+          onPressed: () {
+            return _launchURL("https://github.com/frelixnero", context);
+          },
+        ),
         Gap(5),
-        FooterLinksItems(iconImage: AppAssets.linkedIn, onPressed: () {}),
+        FooterLinksItems(
+          iconImage: AppAssets.linkedIn,
+          onPressed: () {
+            return _launchURL(
+              "https://www.linkedin.com/in/osita-ogene-368a9b175/",
+              context,
+            );
+          },
+        ),
         Gap(5),
         FooterLinksItems(iconImage: AppAssets.youtube, onPressed: () {}),
         Gap(5),

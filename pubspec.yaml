@@ -41,16 +41,22 @@ dependencies:
   riverpod_generator: ^2.6.5
   build_runner: ^2.5.4
 
-  # Flutter web plugins...
+  # Flutter web plugins....
   flutter_web_plugins:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
 
+
+
+
+
   assets:
     - assets/
     - assets/icons/
+    - assets/icon/
     - assets/fonts/
     - assets/images/
     - assets/icons/profile.jpg
@@ -84,3 +90,15 @@ flutter:
       fonts:
         - asset: assets/fonts/Urbanist-Bold.ttf
           weight: 700
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: assets/icons/app_icon.png
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: assets/icons/app_icon.png
+    background_color: "#5D0B48"
+    theme_color: "#5D0B48"
