@@ -10,7 +10,7 @@ class TestimonyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StyledCard(
-      isBackgroundBlur: true,
+      isBackgroundBlur: false,
       widget: Column(
         children: [
           Row(
@@ -35,7 +35,7 @@ class TestimonyItem extends StatelessWidget {
           ),
           Gap(16),
           Text(
-            "Text of Testimonies",
+            "In progress",
             style: context.textStyle.bodyMdMedium.copyWith(
               color: Theme.of(context).colorScheme.onBackground,
             ),

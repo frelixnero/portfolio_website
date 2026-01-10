@@ -25,7 +25,8 @@ class AboutPage extends StatelessWidget {
                   const Gap(16),
                   CircleAvatar(
                     radius: 100,
-                    backgroundImage: Image.asset(AppAssets.profilePic).image,
+                    backgroundImage:
+                        Image.asset(AppAssets.profilePicFrown).image,
                   ),
                   const Gap(16),
                   SeoText(

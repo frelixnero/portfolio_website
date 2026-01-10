@@ -177,9 +177,9 @@ class ThemeToggle extends ConsumerWidget {
     return Switch(
       value: state.value == ThemeMode.dark,
       onChanged: (bool value) {
-        ref
-            .read(appThemeControllerProvider.notifier)
-            .changeTheme(value ? ThemeMode.dark : ThemeMode.light);
+        // ref
+        //     .read(appThemeControllerProvider.notifier)
+        //     .changeTheme(value ? ThemeMode.dark : ThemeMode.light);
       },
     );
   }

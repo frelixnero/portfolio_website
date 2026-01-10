@@ -3,7 +3,7 @@ class AppStrings {
       '''Ogene Osita Felix (Full Stack Mobile Developer | Python , Flutter, Kotlin Expert)''';
 
   static const String aboutDescription =
-      '''I am a results-driven Flutter & Python Developer with 2+ years of experience delivering high-quality, cross-platform
+      '''I am a results-driven Flutter & Python Developer with 3+ years of experience delivering high-quality, cross-platform
 mobile applications and robust backend services. I specialize in Flutter (Dart) and Python (FastAPI, Flet), with hands-
 on expertise in Firebase, Hive, and PostgreSQL. I’ve successfully built and deployed applications integrating REST
 APIs, authentication flows, and scalable state management using patterns like MVVM and frameworks such as Bloc,
