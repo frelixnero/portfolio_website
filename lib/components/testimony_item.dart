@@ -19,7 +19,7 @@ class TestimonyItem extends StatelessWidget {
                 width: 40,
                 height: 40,
                 child: CircleAvatar(
-                  backgroundImage: Image.asset(AppAssets.courseImage3).image,
+                  backgroundImage: Image.asset(AppAssets.projectImage3).image,
                 ),
               ),
               Gap(16),

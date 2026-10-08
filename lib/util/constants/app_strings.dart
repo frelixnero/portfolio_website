@@ -13,13 +13,13 @@ environments, consistently delivering maintainable, production-ready code. Passi
 merge solid engineering with intuitive design, I aim to build solutions that make real-world impact''';
 
   static const String foodProjectDesc =
-      '''Developed a robust, end-to-end delivery platform using Flutter, featuring specialized interfaces for both clients and administrators. The system streamlines the entire food ordering lifecycle—from menu browsing and secure checkout to real-time logistical tracking. By bridging a FastAPI backend with Firebase and Google Maps API, the application provides a seamless, high-performance experience that rivals industry-standard delivery services. Frontend: Flutter (Dart)
+      '''Developed a robust, end-to-end delivery platform using Flutter, featuring specialized interfaces for both clients and administrators. The system streamlines the entire food ordering lifecycle—from menu browsing and secure checkout to real-time logistical tracking. By bridging a FastAPI backend with Firebase and Google Maps API, the application provides a seamless, high-performance experience that rivals industry-standard delivery services.''';
 
-Backend: FastAPI (Python), Firebase Auth
+  static const String voicePlatformDesc =
+      '''An ElevenLabs-inspired AI text-to-speech platform pairing a Next.js application layer with a Python/FastAPI inference backend powered by a fine-tuned StyleTTS2 model. A custom voice dataset was created from recorded speech data, and a FastAPI inference engine exposes high-quality text-to-speech through backend APIs. The AI inference environment is containerized with Docker and published to Amazon ECR, with an AWS workflow using EC2 for model fine-tuning, S3 for artifact storage, and IAM-controlled service access. The architecture cleanly separates the user-facing platform from the inference engine and model infrastructure. (In development)''';
 
-Database/Storage: Hive, Shared Preferences
-
-APIs: Google Maps SDK (Maps, Routes, Places)''';
+  static const String nodelineDesc =
+      '''A full-stack workflow automation platform inspired by n8n and Zapier, combining a visual node-based editor with event-driven execution and persistent workflow management. The canvas uses React Flow and Toposort for DAG validation, cycle detection, and topological sorting to guarantee correct execution ordering. Client-server communication is fully type-safe via tRPC and TanStack Query, while an Inngest-powered background engine offloads webhooks and multi-step node executions off the main thread. Authentication runs through Better Auth with server-component session checks, and Prisma with Neon Serverless PostgreSQL persists workflow graphs, execution logs, and sessions. The platform is monetized via Polar and leverages the Vercel AI SDK with Google Gemini for intelligent, LLM-driven workflow steps. (02/2026 – Present)''';
 
   static const String payStackDesc =
       '''Designed and deployed a specialized fintech backend service using FastAPI to facilitate secure digital transactions for a Flutter-based delivery ecosystem. This project serves as a dedicated middleware, bridging the gap between mobile client requests and the Paystack API. By implementing automated verification and real-time webhook listeners, the system ensures that every transaction—from initialization to settlement—is processed with high integrity and minimal latency.''';

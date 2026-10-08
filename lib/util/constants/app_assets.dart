@@ -8,14 +8,14 @@ class AppAssets {
 
   static const String descritionText =
       '''My name is Ogene Osita Felix and I am a results-driven Flutter & Python Developer with over 3 years of experience and technical expertise delivering high-quality, cross-platform mobile applications and robust backend services.''';
-  static const String courseImage =
+  static const String projectImage =
       'assets/images/Brown Cream MInimalist Interior Design Presentation.png';
-  static const String courseImage2 =
+  static const String projectImage2 =
       'assets/images/Light Blue and Dark Blue Illustration Technology Startup Presentation (1).png';
-  static const String courseImage3 =
+  static const String projectImage3 =
       'assets/images/Blue and Purple Gradient 3D Modern Tech Payment Mobile App Presentation.png';
-  static const String courseImage4 = 'assets/images/fleetTracker.png';
-  static const String courseImage5 = 'assets/images/desktopDatabase.png';
+  static const String projectImage4 = 'assets/images/fleetTracker.png';
+  static const String projectImage5 = 'assets/images/desktopDatabase.png';
 
   static const String flutterLogo = "assets/images/flutter-seeklogo.png";
 

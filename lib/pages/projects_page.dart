@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/components/app_scaffold.dart';
-import 'package:portfolio_website/components/course_item.dart';
+import 'package:portfolio_website/components/project_item.dart';
 import 'package:portfolio_website/models/projects_model.dart';
 import 'package:portfolio_website/repositories/projects_repository.dart';
 import 'package:portfolio_website/util/constants/extension.dart';
@@ -34,11 +34,12 @@ class ProjectsPage extends StatelessWidget {
               itemBuilder: ((context, index) {
                 return Align(
                   alignment: AlignmentGeometry.center,
-                  child: CourseItem(
+                  child: ProjectItem(
                     title: projectList[index].title,
                     description: projectList[index].projectDesc,
                     imagePath: projectList[index].imagePath,
                     projectLink: projectList[index].projectLink,
+                    techStack: projectList[index].techStack,
                   ),
                 );
               }),

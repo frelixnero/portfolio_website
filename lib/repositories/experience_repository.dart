@@ -3,6 +3,16 @@ import 'package:portfolio_website/models/experience_model.dart';
 class ExperienceRepository {
   List<ExperienceModel> getExperiences = [
     ExperienceModel(
+      title: "Python Tutor",
+      companyName: "Scriptium · Remote",
+      description1:
+          "Tutor master's and PhD students in Python, adapting instruction to their academic and technical requirements.",
+      description2:
+          "Designed tailored learning paths ranging from Python fundamentals to advanced domain-specific libraries and analysis techniques.",
+      description3:
+          "Recently guided a master's student through Python fundamentals and NetworkX-based network analysis for a graphical analysis course.",
+    ),
+    ExperienceModel(
       title: "Mobile Developer",
       companyName: "Paritie Dynamic Enterprise.",
       description1:
