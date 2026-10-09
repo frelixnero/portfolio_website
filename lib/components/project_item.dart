@@ -191,7 +191,9 @@ class _ScrollableDescriptionState extends State<_ScrollableDescription> {
 
         return ScrollbarTheme(
           data: ScrollbarThemeData(
-            thumbColor: Theme.of(context).colorScheme.primary,
+            thumbColor: WidgetStatePropertyAll(
+              Theme.of(context).colorScheme.primary,
+            ),
             radius: const Radius.circular(8),
           ),
           child: Scrollbar(
