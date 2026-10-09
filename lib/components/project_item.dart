@@ -45,28 +45,16 @@ class _ProjectItemState extends State<ProjectItem> {
 
   Widget _buildTechChip(BuildContext context, String tech) {
     final colorScheme = Theme.of(context).colorScheme;
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
+    return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: colorScheme.primary.withOpacity(_isHovered ? 0.25 : 0.1),
+        color: colorScheme.primary.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: colorScheme.primary.withOpacity(_isHovered ? 0.8 : 0.3),
-        ),
-        boxShadow: _isHovered
-            ? [
-                BoxShadow(
-                  color: colorScheme.primary.withOpacity(0.5),
-                  blurRadius: 12,
-                  spreadRadius: 1,
-                ),
-              ]
-            : const [],
+        border: Border.all(color: colorScheme.primary.withOpacity(0.3)),
       ),
-      child: Text(
-        tech,
+      child: AnimatedDefaultTextStyle(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
         style: context.textStyle.bodyMdMedium.copyWith(
           color: colorScheme.primary,
           shadows: _isHovered
@@ -76,8 +64,9 @@ class _ProjectItemState extends State<ProjectItem> {
                     blurRadius: 8,
                   ),
                 ]
-              : null,
+              : const [],
         ),
+        child: Text(tech),
       ),
     );
   }
